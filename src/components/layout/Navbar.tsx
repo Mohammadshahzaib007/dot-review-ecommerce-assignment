@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
       textTransform: 'uppercase',
-      fontWeight: 700
+      fontWeight: 700,
+      marginBottom: '-5px'
     },
   })
 );
