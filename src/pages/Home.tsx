@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { Container, Grid, TextField, InputAdornment, useMediaQuery } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  TextField,
+  InputAdornment,
+  useMediaQuery,
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 import productsJson from "../data/db.json";
 import ProductCard from "../components/ProductCard";
 
 function Home() {
-
-    const isSmallScreen = useMediaQuery('(max-width:900px)')
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -24,7 +29,7 @@ function Home() {
     });
 
     return products.length === 0 ? (
-      <h1 style={{ textTransform: "uppercase" }}>No Item Found sorry 🙄</h1>
+      <h1 style={{ textTransform: "uppercase" }}>sorry, No Item Found 🙄</h1>
     ) : (
       products.map((item, i) => (
         <ProductCard key={i} title={item.name} imgLink={item.imgUrl} />
@@ -53,7 +58,14 @@ function Home() {
               variant="filled"
             />
           </Grid>
-          <Grid xs={12} style={{ display: "flex", flexWrap: "wrap",  justifyContent: isSmallScreen ? 'center' : 'flex-start' }}>
+          <Grid
+            xs={12}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: isSmallScreen ? "center" : "flex-start",
+            }}
+          >
             {products()}
           </Grid>
         </Grid>
